@@ -16,6 +16,10 @@ class SightseeingServiceProvider extends ServiceProvider {
             'Sightseeing\Repositories\City\EloquentCityRepository'
         );
 
+        $this->app->bind(
+            'Sightseeing\Repositories\Country\CountryRepository',
+            'Sightseeing\Repositories\Country\EloquentCountryRepository'
+        );
     }
 
 } 

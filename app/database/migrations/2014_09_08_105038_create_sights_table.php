@@ -14,8 +14,6 @@ class CreateSightsTable extends Migration {
 	{
         Schema::create('sights', function(Blueprint $table)
         {
-            $table->engine = 'InnoDB';
-
             $table->increments('id');
             $table->string('name');
             $table->integer('city_id')->unsigned();
