@@ -14,6 +14,7 @@ abstract class AbstractEloquentRepository
     public function getAll($limit = 10, $load = array())
     {
         $data = $this->model->with($load)->paginate($limit);
+
         return $data;
     }
 
@@ -21,18 +22,12 @@ abstract class AbstractEloquentRepository
     /**
      * Fetch a single item from db table. Limit to filters if provided
      * @param $id
-     * @param array $filters
+     * @internal param array $filters
      * @return mixed
      */
-    public function getById($id, $filters = array())
+    public function getById($id)
     {
-        if(!empty($filters))
-        {
-            return $this->model->find($id, $filters);
-        }
-
         return $this->model->find($id);
-
     }
 
 } 
