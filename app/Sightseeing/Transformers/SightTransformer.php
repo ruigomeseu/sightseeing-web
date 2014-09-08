@@ -17,7 +17,7 @@ class SightTransformer extends TransformerAbstract
             'id'          => (int)$sight->id,
             'name'        => $sight->name,
             'description' => $sight->description,
-
+            'image'       => $sight->image,
             'links'       => [
                 [
                     'rel' => 'self',
