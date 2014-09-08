@@ -4,17 +4,24 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+        "laracasts/commander": "~1.0",
+        "league/fractal": "0.8.*"
 	},
+    "require-dev": {
+        "way/generators": "~3.0"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",
 			"app/controllers",
-			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+        "psr-4": {
+            "Sightseeing\\": "app/Sightseeing/"
+        }
 	},
 	"scripts": {
 		"post-install-cmd": [
