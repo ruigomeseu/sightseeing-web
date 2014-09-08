@@ -24,4 +24,11 @@ class CitiesController extends ApiController {
         return $this->respondWithCollection($cities, new CityTransformer);
     }
 
+    public function show($cityId)
+    {
+        $city = $this->cityRepository->getById($cityId);
+
+        return $this->respondWithItem($city, new CityTransformer);
+    }
+
 } 

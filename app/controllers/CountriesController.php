@@ -24,4 +24,11 @@ class CountriesController extends ApiController {
         return $this->respondWithCollection($cities, new CountryTransformer);
     }
 
+    public function show($countryId)
+    {
+        $country = $this->countryRepository->getById($countryId);
+
+        return $this->respondWithItem($country, new CountryTransformer);
+    }
+
 } 
