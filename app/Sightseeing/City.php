@@ -9,5 +9,10 @@ class City extends Eloquent {
         return $this->hasMany('Sightseeing\Sight');
     }
 
+    public function country()
+    {
+        return $this->hasOne('Sightseeing\Country');
+    }
+
 
 } 
