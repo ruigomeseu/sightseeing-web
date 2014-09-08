@@ -134,34 +134,8 @@ class ApiController extends Controller
 
     protected function respondWithArray(array $array, array $headers = [])
     {
-        $mimeTypeRaw = Input::server('HTTP_ACCEPT', '*/*');
-
-        // If its empty or has */* then default to JSON
-        if ($mimeTypeRaw === '*/*') {
-            $mimeType = 'application/json';
-        } else {
-            // You will probably want to do something intelligent with charset if provided.
-            // This chapter just assumes UTF8 everything everywhere.
-            $mimeParts = (array)explode(';', $mimeTypeRaw);
-            $mimeType = strtolower($mimeParts[0]);
-        }
-
-        switch ($mimeType) {
-            case 'application/json':
-                $contentType = 'application/json';
-                $content = json_encode($array, JSON_UNESCAPED_SLASHES);
-                break;
-
-            default:
-                $contentType = 'application/json';
-                $content = json_encode([
-                    'error' => [
-                        'code'      => static::CODE_INVALID_MIME_TYPE,
-                        'http_code' => 415,
-                        'message'   => sprintf('Content of type %s is not supported.', $mimeType),
-                    ]
-                ]);
-        }
+        $contentType = 'application/json';
+        $content = json_encode($array, JSON_UNESCAPED_SLASHES);
 
         $response = Response::make($content, $this->statusCode, $headers);
         $response->header('Content-Type', $contentType);
