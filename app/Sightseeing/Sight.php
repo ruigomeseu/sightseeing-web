@@ -11,4 +11,9 @@ class Sight extends Eloquent {
         return $this->belongsTo('Post');
     }
 
+    public function beacons()
+    {
+        return $this->hasMany('Sightseeing\Beacon');
+    }
+
 } 
