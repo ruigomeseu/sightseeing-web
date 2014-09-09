@@ -122,7 +122,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Laracasts\Commander\CommanderServiceProvider',
-        'Sightseeing\Repositories\SightseeingServiceProvider'
+        'Sightseeing\Repositories\RepositoryServiceProvider',
+        'Sightseeing\Listeners\EventServiceProvider'
 
 	),
 

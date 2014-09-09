@@ -2,13 +2,14 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class SightseeingServiceProvider extends ServiceProvider {
+class RepositoryServiceProvider extends ServiceProvider {
 
     protected $repositories = [
         'City',
         'Country',
         'Sight',
-        'Beacon'
+        'Beacon',
+        'User'
     ];
 
     /**
