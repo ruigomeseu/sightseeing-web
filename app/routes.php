@@ -19,6 +19,24 @@ Route::group(array('prefix' => 'api/v1'), function()
 
 });
 
+Route::group(array('before' => 'guest'), function()
+{
+    Route::get('/register', array('as' => 'user.register', 'uses' => 'UsersController@getRegister'));
+    Route::post('/register', array('as' => 'user.register', 'before' => 'csrf', 'uses' => 'UsersController@postRegister'));
+
+    Route::get('/login', array('as' => 'user.login', 'uses' => 'UsersController@getLogin'));
+    Route::post('/login', array('as' => 'user.login', 'before' => 'csrf', 'uses' => 'UsersController@postLogin'));
+
+    Route::get('activate/{token}', array('as' => 'verify', 'uses' => 'UsersController@verify'));
+});
+
+
+Route::group(array('before' => 'auth'), function()
+{
+    Route::get('/dashboard', array('as' => 'user.dashboard', 'uses' => 'UsersController@index'));
+    Route::get('logout', array('as' => 'logout', 'uses' => 'UsersController@logout'));
+});
+
 Route::get('/', function() {
-    dd('We got rid of the pretty landing page. Check back soon!');
+    return View::make('layout.landing.main');
 });
