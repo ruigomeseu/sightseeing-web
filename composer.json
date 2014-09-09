@@ -7,7 +7,9 @@
 		"laravel/framework": "4.2.*",
         "laracasts/commander": "~1.0",
         "guzzlehttp/guzzle": "~4.0",
-        "league/fractal": "0.8.*"
+        "league/fractal": "0.8.*",
+        "graham-campbell/flysystem": "0.5.*@dev",
+        "aws/aws-sdk-php": "~2.4"
 	},
     "require-dev": {
         "way/generators": "~3.0"
@@ -15,7 +17,6 @@
 	"autoload": {
 		"classmap": [
 			"app/commands",
-			"app/controllers",
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"

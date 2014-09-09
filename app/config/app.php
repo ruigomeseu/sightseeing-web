@@ -123,7 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Laracasts\Commander\CommanderServiceProvider',
         'Sightseeing\Repositories\RepositoryServiceProvider',
-        'Sightseeing\Listeners\EventServiceProvider'
+        'Sightseeing\Listeners\EventServiceProvider',
+        'GrahamCampbell\Flysystem\FlysystemServiceProvider'
 
 	),
 
