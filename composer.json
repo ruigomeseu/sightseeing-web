@@ -8,7 +8,7 @@
         "laracasts/commander": "~1.0",
         "guzzlehttp/guzzle": "~4.0",
         "league/fractal": "0.8.*",
-        "graham-campbell/flysystem": "0.5.*@dev",
+        "league/flysystem": "0.5.*",
         "aws/aws-sdk-php": "~2.4"
 	},
     "require-dev": {

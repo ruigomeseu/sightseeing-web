@@ -124,7 +124,6 @@ return array(
         'Laracasts\Commander\CommanderServiceProvider',
         'Sightseeing\Repositories\RepositoryServiceProvider',
         'Sightseeing\Listeners\EventServiceProvider',
-        'GrahamCampbell\Flysystem\FlysystemServiceProvider'
 
 	),
 
