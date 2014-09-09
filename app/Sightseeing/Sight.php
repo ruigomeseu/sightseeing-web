@@ -6,9 +6,9 @@ class Sight extends Eloquent {
 
     protected $fillable = ['name', 'value'];
 
-    public function post()
+    public function city()
     {
-        return $this->belongsTo('Post');
+        return $this->belongsTo('Sightseeing\City');
     }
 
     public function beacons()
