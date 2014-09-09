@@ -1,8 +1,12 @@
-<?php namespace Controllers\Api;
+<?php namespace Sightseeing\Controllers;
 
+use Auth;
+use Input;
 use Laracasts\Commander\CommanderTrait;
+use Redirect;
 use Sightseeing\Repositories\User\UserRepository;
 use Sightseeing\Users\RegisterUserCommand;
+use View;
 
 class UsersController extends BaseController {
 
@@ -20,7 +24,8 @@ class UsersController extends BaseController {
 
     public function index()
     {
-        return View::make('user.dashboard');
+        return View::make('user.dashboard')
+            ->with('title', 'Dashboard');
     }
 
     /**
@@ -77,7 +82,7 @@ class UsersController extends BaseController {
                 Auth::logout();
                 return Redirect::route('user.login')->withErrors('You must first activate your account before you can log in, please check your email.');
             } else {
-                return Redirect::route('dashboard');
+                return Redirect::route('user.dashboard');
             }
 
         } else {

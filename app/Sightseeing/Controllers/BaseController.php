@@ -1,4 +1,6 @@
-<?php namespace Controllers;
+<?php namespace Sightseeing\Controllers;
+
+use Illuminate\Routing\Controller;
 
 class BaseController extends Controller {
 

@@ -1,11 +1,13 @@
-<?php namespace Controllers\Api;
+<?php namespace Sightseeing\Controllers\Api;
 
+use Illuminate\Routing\Controller;
+use Input;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
+use Response;
 
-class ApiController extends Controller
-{
+class ApiController extends Controller {
 
     protected $statusCode = 200;
 

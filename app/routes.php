@@ -26,7 +26,7 @@ Route::group(array('prefix' => 'api/v1', 'namespace' => 'Sightseeing\Controllers
  *
  * Guest only
  */
-Route::group(array('before' => 'guest'), function()
+Route::group(array('before' => 'guest', 'namespace' => 'Sightseeing\Controllers'), function()
 {
     Route::get('/register', array('as' => 'user.register', 'uses' => 'UsersController@getRegister'));
     Route::post('/register', array('as' => 'user.register', 'before' => 'csrf', 'uses' => 'UsersController@postRegister'));
@@ -42,10 +42,13 @@ Route::group(array('before' => 'guest'), function()
  *
  * Users only
  */
-Route::group(array('before' => 'auth'), function()
+Route::group(array('before' => 'auth', 'namespace' => 'Sightseeing\Controllers'), function()
 {
     Route::get('/dashboard', array('as' => 'user.dashboard', 'uses' => 'UsersController@index'));
-    Route::get('logout', array('as' => 'logout', 'uses' => 'UsersController@logout'));
+    Route::get('logout', array('as' => 'user.logout', 'uses' => 'UsersController@logout'));
+
+    Route::get('/sights', array('as' => 'sight.index', 'uses' => 'SightsController@index'));
+    Route::get('/sights/{id}', array('as' => 'sight.show', 'uses' => 'SightsController@show'));
 });
 
 Route::get('/', function() {
