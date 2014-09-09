@@ -11,9 +11,9 @@ abstract class AbstractEloquentRepository
      * @param array $load
      * @return mixed
      */
-    public function getAll($limit = 10, $load = array())
+    public function getAll($load = array())
     {
-        $data = $this->model->with($load)->paginate($limit);
+        $data = $this->model->with($load)->get();
 
         return $data;
     }
