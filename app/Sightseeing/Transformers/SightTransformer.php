@@ -6,9 +6,14 @@ use Sightseeing\Sight;
 class SightTransformer extends TransformerAbstract
 {
 
+    protected $availableIncludes = [
+        'beacons'
+    ];
+
     /**
      * Turn this item object into a generic array
      *
+     * @param Sight $sight
      * @return array
      */
     public function transform(Sight $sight)
@@ -25,6 +30,13 @@ class SightTransformer extends TransformerAbstract
                 ]
             ],
         ];
+    }
+
+    public function includeBeacons(Sight $sight)
+    {
+        $beacons = $sight->beacons;
+
+        return $this->collection($beacons, new BeaconTransformer);
     }
 
 } 
