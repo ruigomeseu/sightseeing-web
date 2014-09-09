@@ -1,4 +1,4 @@
-<?php
+<?php namespace Controllers\Api;
 
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;

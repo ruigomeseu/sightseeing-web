@@ -1,10 +1,12 @@
 <?php
 
-Route::get('api/v1/search', array('as' => 'companies.search', 'uses' => 'CompaniesController@search'));
-
-Route::group(array('prefix' => 'api/v1'), function()
+/**
+ * API routes
+ *
+ * Namespaced and prefixed for versioning purposes
+ */
+Route::group(array('prefix' => 'api/v1', 'namespace' => 'Sightseeing\Controllers\Api'), function()
 {
-
     Route::get('cities', array('as' => 'cities.list', 'uses' => 'CitiesController@index'));
     Route::get('cities/{id}' , array('as' => 'cities.show', 'uses' => 'CitiesController@show'));
 
@@ -16,9 +18,14 @@ Route::group(array('prefix' => 'api/v1'), function()
 
     Route::get('beacons', array('as' => 'beacons.list', 'uses' => 'BeaconsController@index'));
     Route::get('beacons/{id}', array('as' => 'beacons.show', 'uses' => 'BeaconsController@show'));
-
 });
 
+
+/**
+ * Web app routes
+ *
+ * Guest only
+ */
 Route::group(array('before' => 'guest'), function()
 {
     Route::get('/register', array('as' => 'user.register', 'uses' => 'UsersController@getRegister'));
@@ -30,7 +37,11 @@ Route::group(array('before' => 'guest'), function()
     Route::get('activate/{token}', array('as' => 'verify', 'uses' => 'UsersController@verify'));
 });
 
-
+/**
+ * Web app routes
+ *
+ * Users only
+ */
 Route::group(array('before' => 'auth'), function()
 {
     Route::get('/dashboard', array('as' => 'user.dashboard', 'uses' => 'UsersController@index'));

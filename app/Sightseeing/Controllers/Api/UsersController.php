@@ -1,4 +1,4 @@
-<?php
+<?php namespace Controllers\Api;
 
 use Laracasts\Commander\CommanderTrait;
 use Sightseeing\Repositories\User\UserRepository;
@@ -20,7 +20,7 @@ class UsersController extends BaseController {
 
     public function index()
     {
-        return View::make('layout.default.header');
+        return View::make('user.dashboard');
     }
 
     /**

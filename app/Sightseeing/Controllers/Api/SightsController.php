@@ -1,4 +1,4 @@
-<?php
+<?php namespace Controllers\Api;
 
 use League\Fractal\Manager;
 use Sightseeing\Repositories\Sight\SightRepository;
