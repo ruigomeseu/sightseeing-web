@@ -5,11 +5,11 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-        "laracasts/commander": "~1.0",
-        "guzzlehttp/guzzle": "~4.0",
+        "laracasts/commander": "1.1.*",
+        "guzzlehttp/guzzle": "4.2.*",
         "league/fractal": "0.8.*",
         "league/flysystem": "0.5.*",
-        "aws/aws-sdk-php": "~2.4"
+        "aws/aws-sdk-php": "2.6.*"
 	},
     "require-dev": {
         "way/generators": "~3.0"
