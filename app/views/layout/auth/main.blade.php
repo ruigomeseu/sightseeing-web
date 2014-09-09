@@ -19,6 +19,8 @@
 	<link href="/assets/css/rtl.min.css" rel="stylesheet" type="text/css">
 	<link href="/assets/css/themes.min.css" rel="stylesheet" type="text/css">
 
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 	<!--[if lt IE 9]>
 		<script src="/assets/js/ie.min.js"></script>
 	<![endif]-->
