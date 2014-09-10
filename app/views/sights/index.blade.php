@@ -45,7 +45,7 @@
                                     <td>{{ $sight->name }}</td>
                                     <td>{{ $sight->city->name }}</td>
                                     <td>{{ str_limit($sight->description, $limit = 100, $end = '...') }}</td>
-                                    <td>Edit</td>
+                                    <td>{{ link_to_route('sight.show', 'Edit', $sight->id) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
