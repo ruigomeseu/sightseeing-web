@@ -4,5 +4,6 @@ interface SightRepository {
 
     function getAll();
     function getById($id);
+    function updateById($id, $data);
 
 } 

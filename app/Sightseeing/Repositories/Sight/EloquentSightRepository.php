@@ -12,5 +12,16 @@ class EloquentSightRepository extends AbstractEloquentRepository implements Sigh
         $this->model = $model;
     }
 
+    function updateById($id, $data)
+    {
+        $sight = $this->model->findOrFail($id);
+
+        $sight->name = $data['name'];
+
+        $sight->description = $data['description'];
+
+        $sight->save();
+    }
+
 
 } 
