@@ -49,6 +49,7 @@ Route::group(array('before' => 'auth', 'namespace' => 'Sightseeing\Controllers')
 
     Route::get('/sights', array('as' => 'sight.index', 'uses' => 'SightsController@index'));
     Route::get('/sights/{id}', array('as' => 'sight.show', 'uses' => 'SightsController@show'));
+    Route::post('/sights/{id}', array('as' => 'sight.show', 'uses' => 'SightsController@edit'));
 });
 
 Route::get('/', function() {
