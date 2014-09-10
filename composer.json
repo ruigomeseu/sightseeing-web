@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-        "laracasts/commander": "1.1.*",
+        "laracasts/commander": "~1.0",
         "guzzlehttp/guzzle": "4.2.*",
         "league/fractal": "0.8.*",
         "league/flysystem": "0.5.*",
