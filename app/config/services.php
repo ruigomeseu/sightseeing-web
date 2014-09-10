@@ -20,12 +20,17 @@ return array(
 	),
 
 	'mandrill' => array(
-		'secret' => 'W9zr-Il9xA6avwjyjOTRIA',
+		'secret' => $_ENV['MANDRILL_KEY'],
 	),
 
 	'stripe' => array(
 		'model'  => 'User',
 		'secret' => '',
 	),
+
+    's3' => array(
+        'key' => $_ENV['S3_KEY'],
+        'secret' => $_ENV['S3_SECRET']
+    ),
 
 );
