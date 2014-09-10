@@ -4,6 +4,7 @@ use Auth;
 use Input;
 use Laracasts\Commander\CommanderTrait;
 use Redirect;
+use Sightseeing\Exceptions\ValidationException;
 use Sightseeing\Repositories\User\UserRepository;
 use Sightseeing\Users\RegisterUserCommand;
 use View;
@@ -44,7 +45,7 @@ class UsersController extends BaseController {
     {
         try {
             $this->execute(RegisterUserCommand::class);
-        } catch (\Sightseeing\Exceptions\ValidationException $exception)
+        } catch (ValidationException $exception)
         {
             return Redirect::route('user.register')
                 ->withInput()
