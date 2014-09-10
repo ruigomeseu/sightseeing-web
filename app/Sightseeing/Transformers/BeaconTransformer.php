@@ -16,6 +16,7 @@ class BeaconTransformer extends TransformerAbstract {
         return [
             'id'       => (int) $beacon->id,
             'name'     => $beacon->name,
+            'UUID'     => $beacon->UUID,
             'major_id' => (int) $beacon->major,
             'minor_id' => (int) $beacon->minor,
             'installed_at' => $beacon->installed_at,
