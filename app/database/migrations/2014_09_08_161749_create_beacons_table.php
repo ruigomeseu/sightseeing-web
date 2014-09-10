@@ -18,6 +18,7 @@ class CreateBeaconsTable extends Migration {
             $table->string('name');
             $table->integer('sight_id')->unsigned();
             $table->foreign('sight_id')->references('id')->on('sights');
+            $table->string('UUID');
             $table->integer('major');
             $table->integer('minor');
             $table->timestamp('installed_at')->nullable();
