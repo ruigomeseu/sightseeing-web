@@ -6,4 +6,6 @@ return [
         'Sightseeing\Listeners\EmailNotifier',
     ],
 
+    's3-bucket' => 'sightseeing.io'
+
 ];
