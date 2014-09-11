@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSightsTable extends Migration {
+class CreateSightImagesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,12 @@ class CreateSightsTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('sights', function(Blueprint $table)
+        Schema::create('sight_images', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('cities');
-            $table->text('description');
+            $table->integer('sight_id')->unsigned();
+            $table->foreign('sight_id')->references('id')->on('sights');
+            $table->string('path');
             $table->timestamps();
         });
 	}
@@ -30,7 +29,7 @@ class CreateSightsTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('sights');
+        Schema::drop('sight_images');
 	}
 
 }

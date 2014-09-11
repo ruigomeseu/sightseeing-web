@@ -6,7 +6,8 @@ class DatabaseSeeder extends Seeder {
         'countries',
         'cities',
         'sights',
-        'beacons'
+        'beacons',
+        'sight_images'
     ];
 
     protected $seeders = [
