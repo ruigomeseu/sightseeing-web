@@ -7,7 +7,7 @@
         <div class="breadcrumb-label text-light-gray">You are here: </div>
         <li><a href="{{ URL::route('user.dashboard') }}">Dashboard</a></li>
         <li><a href="{{ URL::route('sight.index') }}">Sights</a></li>
-        <li class="active">Editing {{ $sight->name }}</li>
+        <li class="active">{{ $sight->name }}</li>
     </ul>
 
     <div class="page-header">

@@ -25,7 +25,7 @@ class SightsController extends BaseController {
         $sights = $this->sightRepository->getAll(['city', 'images']);
 
         return \View::make('sights.index')
-            ->with('title', 'All Sights')
+            ->with('title', 'Manage Sights')
             ->with('sights', $sights);
     }
 
@@ -33,7 +33,7 @@ class SightsController extends BaseController {
     {
         $sight = $this->sightRepository->getById($sightId);
 
-        return \View::make('sights.edit')
+        return \View::make('sights.show')
             ->with('title', 'Edit ' . $sight->name)
             ->with('sight', $sight);
     }
