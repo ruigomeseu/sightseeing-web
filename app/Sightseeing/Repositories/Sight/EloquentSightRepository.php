@@ -2,6 +2,7 @@
 
 use Sightseeing\Repositories\AbstractEloquentRepository;
 use Sightseeing\Sight;
+use Sightseeing\SightImage;
 
 class EloquentSightRepository extends AbstractEloquentRepository implements SightRepository {
 
@@ -24,4 +25,26 @@ class EloquentSightRepository extends AbstractEloquentRepository implements Sigh
     }
 
 
-} 
+    function addImageById($id, $imagePath)
+    {
+        $sight = $this->model->findOrFail($id);
+
+        $image = new SightImage();
+
+        $image->path = $imagePath;
+
+        $sight->images()->save($image);
+    }
+
+    function getImageById($imageId)
+    {
+        return SightImage::findOrFail($imageId);
+    }
+
+    function deleteImageById($imageId)
+    {
+        $image = SightImage::findOrFail($imageId);
+
+        $image->delete();
+    }
+}
