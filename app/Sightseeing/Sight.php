@@ -16,4 +16,9 @@ class Sight extends Eloquent {
         return $this->hasMany('Sightseeing\Beacon');
     }
 
+    public function images()
+    {
+        return $this->hasMany('Sightseeing\SightImage');
+    }
+
 } 
