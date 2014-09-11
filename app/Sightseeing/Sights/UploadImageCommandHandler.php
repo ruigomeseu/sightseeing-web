@@ -7,6 +7,7 @@ use Laracasts\Commander\Events\DispatchableTrait;
 use Aws\S3\S3Client;
 use League\Flysystem\Filesystem as Flysystem;
 use League\Flysystem\Adapter\AwsS3 as Adapter;
+use Sightseeing\Repositories\Sight\SightRepository;
 
 class UploadImageCommandHandler implements CommandHandler {
 
@@ -22,10 +23,16 @@ class UploadImageCommandHandler implements CommandHandler {
      */
     private $filesystem;
 
-    function __construct(Repository $config, Filesystem $filesystem)
+    /**
+     * @var SightRepository
+     */
+    private $sightRepository;
+
+    function __construct(Filesystem $filesystem, Repository $config, SightRepository $sightRepository)
     {
-        $this->config = $config;
         $this->filesystem = $filesystem;
+        $this->config = $config;
+        $this->sightRepository = $sightRepository;
     }
 
     /**
@@ -41,13 +48,22 @@ class UploadImageCommandHandler implements CommandHandler {
             'secret' => $this->config->get('services.s3.secret'),
         ));
 
-        $filesystem = new Flysystem(new Adapter($client, 'sightseeing.io'));
+        /*
+         * Upload image to S3
+         */
+        $filesystem = new Flysystem(new Adapter($client, $this->config->get('sightseeing.s3-bucket')));
 
-        $extension = $this->filesystem->extension($command->file['name']);
+        $extension = $this->filesystem->extension($command->image->getClientOriginalName());
 
         $filename = sha1(time().time()).".{$extension}";
 
-        $filesystem->write($filename, $command->file);
+        $filesystem->write($filename, file_get_contents($command->image), ['visibility' => 'public']);
+
+        /*
+         * Create record on the database
+         */
+
+        $this->sightRepository->addImageById($command->id, $filename);
     }
 
 
