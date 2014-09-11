@@ -22,6 +22,8 @@
 
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="/assets/css/bootstrap-image-gallery.min.css">
+
 	<!--[if lt IE 9]>
 		<script src="/assets/js/ie.min.js"></script>
 	<![endif]-->
@@ -184,9 +186,6 @@
                 </li>
 				<li>
 					<a href="{{ URL::route('user.dashboard') }}"><i class="menu-icon fa fa-cubes"></i><span class="mm-text">Manage Beacons</span></a>
-				</li>
-				<li>
-					<a href="widgets.html"><i class="menu-icon fa fa-flask"></i><span class="mm-text">Widgets</span></a>
 				</li>
 			</ul> <!-- / .navigation -->
 			<div class="menu-content">
