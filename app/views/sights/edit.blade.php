@@ -7,7 +7,7 @@
         <div class="breadcrumb-label text-light-gray">You are here: </div>
         <li><a href="{{ URL::route('user.dashboard') }}">Dashboard</a></li>
         <li><a href="{{ URL::route('sight.index') }}">Sights</a></li>
-        <li class="active">{{ $sight->name }}</li>
+        <li class="active">Editing {{ $sight->name }}</li>
     </ul>
 
     <div class="page-header">
@@ -19,7 +19,7 @@
 
             <div class="panel">
                 <div class="panel-heading">
-                    <span class="panel-title">{{ $sight->name }}</span>
+                    <span class="panel-title">Edit Sight</span>
                 </div>
                 <div class="panel-body">
                     {{ Form::open(array('route' => array('sight.show', $sight->id), 'files' => true),  array('class' => 'form-horizontal')) }}
@@ -47,17 +47,32 @@
                 </div>
             </div>
 
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title">Image Gallery</span>
+                </div>
+                <div class="panel-body">
+                    <div id="links">
+                        @foreach($sight->images as $image)
+                           <a href="{{ URL::route('sight.image.show', $image->id) }}" title="Banana" data-gallery>
+                               <img src="http://s3.amazonaws.com/sightseeing.io/{{ $image->path }}" alt="Banana" height="150" width="150">
+                           </a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
             <!-- Javascript -->
             <script>
                 init.push(function () {
                     $("#dropzonejs-example").dropzone({
-                        url: "//dummy.html",
-                        paramName: "file", // The name that will be used to transfer the file
+                        url: "{{ URL::route('sight.upload', $sight->id) }}",
+                        paramName: "image", // The name that will be used to transfer the file
                         maxFilesize: 0.5, // MB
 
                         addRemoveLinks : true,
                         dictResponseError: "Can't upload file!",
-                        autoProcessQueue: false,
+                        autoProcessQueue: true,
                         thumbnailWidth: 138,
                         thumbnailHeight: 120,
 
@@ -86,17 +101,15 @@
 
             <div class="panel">
                 <div class="panel-heading">
-                    <span class="panel-title">Dropzone.js file uploads</span>
+                    <span class="panel-title">Upload to Gallery</span>
                 </div>
                 <div class="panel-body">
-                    <div class="note note-info">More info and examples at <a href="http://www.dropzonejs.com" target="_blank">http://www.dropzonejs.com</a></div>
-
                     <div id="dropzonejs-example" class="dropzone-box">
                         <div class="dz-default dz-message">
                             <i class="fa fa-cloud-upload"></i>
                             Drop files in here<br><span class="dz-text-small">or click to pick manually</span>
                         </div>
-                        <form action="//dummy.html">
+                        {{ Form::open(array('route' => 'sight.upload')) }}
                             <div class="fallback">
                                 <input name="image" type="file" multiple="" />
                             </div>
