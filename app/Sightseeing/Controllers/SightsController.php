@@ -1,7 +1,9 @@
 <?php namespace Sightseeing\Controllers; 
 
 use Input;
+use Laracasts\Commander\CommanderTrait;
 use Sightseeing\Repositories\Sight\SightRepository;
+use Sightseeing\Sights\DeleteImageCommand;
 use Sightseeing\Sights\UploadImageCommand;
 
 class SightsController extends BaseController {
@@ -20,7 +22,7 @@ class SightsController extends BaseController {
 
     public function index()
     {
-        $sights = $this->sightRepository->getAll(['city']);
+        $sights = $this->sightRepository->getAll(['city', 'images']);
 
         return \View::make('sights.index')
             ->with('title', 'All Sights')
@@ -44,15 +46,38 @@ class SightsController extends BaseController {
             ->with('message', 'This sight was successfully updated');
     }
 
-    public function postUpload()
+    public function upload($sightId)
     {
-        $input = Input::all();
+        $input = array(
+            'id' => $sightId,
+            'image' => Input::file('image')
+        );
 
-        $file = Input::file('file');
+        $this->execute(UploadImageCommand::class, $input);
+    }
 
-        $this->execute(UploadImageCommand::class);
+    public function showImage($imageId)
+    {
+        $image = $this->sightRepository->getImageById($imageId);
 
+        $sight = $image->sight;
 
+        return \View::make('sights.image')
+            ->with('title', 'Editing image')
+            ->with('image', $image)
+            ->with('sight', $sight);
+    }
+
+    public function deleteImage($imageId)
+    {
+        $input = array(
+            'imageId' => $imageId,
+        );
+
+        $this->execute(DeleteImageCommand::class, $input);
+
+        return \Redirect::route('sight.index')
+            ->with('message', 'Image deleted successfully');
     }
 
 } 
