@@ -35,6 +35,8 @@
 
 <div id="main-wrapper">
 
+    @include ('layout.flash')
+
 	<div id="main-navbar" class="navbar navbar-inverse" role="navigation">
 		<!-- Main menu toggle -->
 		<button type="button" id="main-menu-toggle"><i class="navbar-icon fa fa-bars icon"></i><span class="hide-menu-text">HIDE MENU</span></button>
@@ -185,7 +187,7 @@
                     <a href="{{ URL::route('sight.index') }}"><i class="menu-icon fa fa-eye"></i><span class="mm-text">Manage Sights</span></a>
                 </li>
 				<li>
-					<a href="{{ URL::route('user.dashboard') }}"><i class="menu-icon fa fa-cubes"></i><span class="mm-text">Manage Beacons</span></a>
+					<a href="{{ URL::route('beacon.index') }}"><i class="menu-icon fa fa-cubes"></i><span class="mm-text">Manage Beacons</span></a>
 				</li>
 			</ul> <!-- / .navigation -->
 			<div class="menu-content">
@@ -212,6 +214,8 @@
 <!-- Pixel Admin's js -->
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/pixel-admin.min.js"></script>
+<script src="//js.pusher.com/2.2/pusher.min.js"></script>
+<script src="/assets/js/sightseeing.js"></script>
 
 <script type="text/javascript">
 	init.push(function () {
