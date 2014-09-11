@@ -48,8 +48,11 @@ Route::group(array('before' => 'auth', 'namespace' => 'Sightseeing\Controllers')
     Route::get('logout', array('as' => 'user.logout', 'uses' => 'UsersController@logout'));
 
     Route::get('/sights', array('as' => 'sight.index', 'uses' => 'SightsController@index'));
+    Route::post('/sights/{id}/upload', array('as' => 'sight.upload', 'uses' => 'SightsController@upload'));
     Route::get('/sights/{id}', array('as' => 'sight.show', 'uses' => 'SightsController@show'));
     Route::post('/sights/{id}', array('as' => 'sight.show', 'uses' => 'SightsController@edit'));
+    Route::get('/sights/image/{id}', array('as' => 'sight.image.show', 'uses' => 'SightsController@showImage'));
+    Route::get('/sights/image/{id}/delete', array('as' => 'sight.image.delete', 'uses' => 'SightsController@deleteImage'));
 });
 
 Route::get('/', function() {
