@@ -17,4 +17,5 @@ class EloquentCheckinRepository extends AbstractEloquentRepository implements Ch
     {
         return $this->model->create($data);
     }
+
 }
