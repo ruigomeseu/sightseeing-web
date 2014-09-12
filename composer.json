@@ -11,7 +11,8 @@
         "league/fractal": "0.8.*",
         "league/flysystem": "0.5.*",
         "aws/aws-sdk-php": "2.6.*",
-        "pusher/pusher-php-server": "2.1.*"
+        "pusher/pusher-php-server": "2.1.*",
+        "elasticsearch/elasticsearch": "~1.0"
 	},
     "require-dev": {
         "way/generators": "~3.0",
