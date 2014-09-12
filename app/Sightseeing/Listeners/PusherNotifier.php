@@ -11,7 +11,8 @@ class PusherNotifier extends EventListener {
         $pusher = new Pusher($_ENV['PUSHER_KEY'], $_ENV['PUSHER_SECRET'], $_ENV['PUSHER_APP_ID']);
 
         $pusher->trigger("sightseeing.io", "userCheckedIn", [
-           "country" => $event->checkin->country
+           "country" => $event->checkin->country,
+            "sight" => $event->checkin->sight->name
         ]);
     }
 } 
