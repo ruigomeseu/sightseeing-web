@@ -18,6 +18,8 @@ class CreateSightsTable extends Migration {
             $table->string('name');
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->decimal('latitude', 10, 7);
+            $table->decimal('longitude', 10, 7);
             $table->text('description');
             $table->timestamps();
         });
