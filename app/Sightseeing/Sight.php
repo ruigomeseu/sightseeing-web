@@ -21,4 +21,9 @@ class Sight extends Eloquent {
         return $this->hasMany('Sightseeing\SightImage');
     }
 
+    public function categories()
+    {
+        return $this->belongsToMany('Sightseeing\Category', 'sight_categories', 'sight_id', 'category_id');
+    }
+
 } 

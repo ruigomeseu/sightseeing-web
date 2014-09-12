@@ -3,6 +3,8 @@
 class DatabaseSeeder extends Seeder {
 
     protected $tables = [
+        'categories',
+        'sight_categories',
         'countries',
         'cities',
         'sights',
@@ -11,6 +13,7 @@ class DatabaseSeeder extends Seeder {
     ];
 
     protected $seeders = [
+        'CategoriesSeeder',
         'CountrySeeder',
         'CitySeeder',
         'SightSeeder',

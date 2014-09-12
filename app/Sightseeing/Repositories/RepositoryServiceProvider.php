@@ -10,7 +10,8 @@ class RepositoryServiceProvider extends ServiceProvider {
         'Sight',
         'Beacon',
         'User',
-        'Checkin'
+        'Checkin',
+        'Category',
     ];
 
     /**

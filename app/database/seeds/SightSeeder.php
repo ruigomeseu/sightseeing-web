@@ -6,17 +6,39 @@ class SightSeeder extends DatabaseSeeder {
 
     public function run()
     {
-        Sight::create([
+        $sight1 = Sight::create([
             'name' => 'Torre dos Clérigos',
             'city_id' => 1,
-            'description' => 'Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods yew pumpkin juice phials Ravenclaw’s Diadem 10 galleons Thieves Downfall. Ministry-of-Magic mimubulus mimbletonia Pigwidgeon knut phoenix feather other minister Azkaban. Hedwig Daily Prophet treacle tart full-moon Ollivanders You-Know-Who cursed. Fawkes maze raw-steak Voldemort Goblin Wars snitch Forbidden forest grindylows wool socks.',
+            'description' => 'A Torre dos Clérigos é uma torre sineira que faz parte da Igreja dos Clérigos e está situada na cidade do Porto, Portugal. É um monumento considerado por muitos o ex libris da cidade do Porto.
+
+A torre foi construída entre 1754 e 1763 com projecto do italiano Nicolau Nasoni sob encomenda de Dom Jerónimo de Távora Noronha Leme e Cernache a pedido da Irmandade dos Clérigos Pobres. O seu arquitecto, Nicolau Nasoni, contribuiu durante muitos anos para a construção da grande torre dos clérigos sem receber nada em troca e só alguns anos depois isso aconteceu.
+
+Está classificada pelo IPPAR como Monumento Nacional desde 1910.',
         ]);
 
-        Sight::create([
-            'name' => 'Aquela casa',
-            'city_id' => 2,
-            'description' => 'Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration. Magic Nagini bezoar, Hippogriffs Headless Hunt giant squid petrified. Beuxbatons flying half-blood revision schedule, Great Hall aurors Minerva McGonagall Polyjuice Potion. Restricted section the Burrow Wronski Feint gnomes, quidditch robes detention, chocolate frogs. Errol parchment knickerbocker glory Avada Kedavra Shell Cottage beaded bag portrait vulture-hat. Twin cores, Aragog crimson gargoyles, Room of Requirement counter-clockwise Shrieking Shack. Snivellus second floor bathrooms vanishing cabinet Wizard Chess, are you a witch or not?',
+        $sight1->categories()->attach([1, 4]);
+
+        $sight2 = Sight::create([
+            'name' => 'Funicular dos Guindais',
+            'city_id' => 1,
+            'description' => 'O Funicular dos Guindais é uma ferrovia ligeira que se localiza na cidade do Porto, em Portugal, e liga a Batalha (Rua Augusto Rosa) à Ribeira (Av. Gustave Eiffel). É operado pelo Metro do Porto.
+
+Desde a sua inauguração, em fevereiro de 2004, até outubro de 2013 já transportou cerca de 3,7 milhões de pessoas.',
         ]);
+
+        $sight2->categories()->attach([6]);
+
+        $sight3 = Sight::create([
+            'name' => 'Offley Port Cave',
+            'city_id' => 1,
+            'description' => 'Criada em 1737 por William Offley, a empresa ganhou renome e prestígio internacional sob a direção de Joseph James Forrester, uma personagem marcante da história do Vinho do Porto, distinguido com o título de Barão pelo Rei de Portugal.
+
+            O Barão de Forrester, um homem de negócios, enólogo, respeitado provador de vinhos, artista e autor de mapas, foi uma das principais personagens na história do Vinho do Porto.
+
+            As ancestrais Caves Offley oferecem aos seus visitantes uma experiência inigualável onde a calma e o silêncio imperam.'
+        ]);
+
+        $sight3->categories()->attach([3]);
     }
 
 } 

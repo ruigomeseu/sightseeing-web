@@ -8,6 +8,7 @@ class SightTransformer extends TransformerAbstract
 
     protected $availableIncludes = [
         'beacons',
+        'categories',
         'images'
     ];
 
@@ -45,6 +46,13 @@ class SightTransformer extends TransformerAbstract
         $images = $sight->images;
 
         return $this->collection($images, new ImageTransformer);
+    }
+
+    public function includeCategories(Sight $sight)
+    {
+        $categories = $sight->categories;
+
+        return $this->collection($categories, new CategoryTransformer);
     }
 
 } 

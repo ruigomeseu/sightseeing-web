@@ -19,6 +19,8 @@ Route::group(array('prefix' => 'api/v1', 'namespace' => 'Sightseeing\Controllers
     Route::get('beacons', array('as' => 'beacons.list', 'uses' => 'BeaconsController@index'));
     Route::get('beacons/{id}', array('as' => 'beacons.show', 'uses' => 'BeaconsController@show'));
 
+    Route::get('categories', array('as' => 'categories.list', 'uses' => 'CategoriesController@index'));
+
     Route::post('checkins', array('as' => 'checkin.create', 'uses' => 'CheckinsController@create'));
 });
 
