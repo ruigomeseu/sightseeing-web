@@ -7,7 +7,6 @@ abstract class AbstractEloquentRepository
 {
 
     /**
-     * @param int $limit
      * @param array $load
      * @return mixed
      */
