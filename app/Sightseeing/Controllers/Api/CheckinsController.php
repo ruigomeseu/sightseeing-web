@@ -21,7 +21,7 @@ class CheckinsController extends ApiController {
 
     public function create()
     {
-        $this->execute(CheckinAtSightCommand::class, [
+        $this->execute(CheckInAtSightCommand::class, [
             'country' => Input::get("country"),
             'mac_address' => Input::get("mac_address"),
             'sight_id' => Input::get("sight_id")

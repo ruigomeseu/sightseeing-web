@@ -1,6 +1,6 @@
 <?php namespace Sightseeing\Checkins; 
 
-class CheckinAtSightCommand {
+class CheckInAtSightCommand {
 
     public $sight_id;
     public $country;
