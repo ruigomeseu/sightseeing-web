@@ -15,7 +15,7 @@ class CategoriesSeeder extends Seeder {
         ]);
 
         Category::create([
-            'name' => 'Wine Caves',
+            'name' => 'Wine Cellars',
         ]);
 
         Category::create([
@@ -28,6 +28,10 @@ class CategoriesSeeder extends Seeder {
 
         Category::create([
             'name' => 'Lookouts',
+        ]);
+
+        Category::create([
+            'name' => 'Cultural'
         ]);
 
         Category::create([
