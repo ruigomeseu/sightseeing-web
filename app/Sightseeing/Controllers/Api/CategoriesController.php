@@ -11,11 +11,6 @@ class CategoriesController extends ApiController {
      */
     private $categoryRepository;
 
-    /**
-     * @var Manager
-     */
-    private $manager;
-
     function __construct(CategoryRepository $categoryRepository, Manager $manager)
     {
         parent::__construct($manager);
