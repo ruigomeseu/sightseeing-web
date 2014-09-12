@@ -60,8 +60,15 @@ Route::group(array('before' => 'auth', 'namespace' => 'Sightseeing\Controllers')
 
     Route::get('/beacons', array('as' => 'beacon.index', 'uses' => 'BeaconsController@index'));
     Route::get('/beacons/{id}', array('as' => 'beacon.show', 'uses' => 'BeaconsController@show'));
+    Route::post('beacons/{id}', array('as' => 'beacon.show', 'uses' => 'BeaconsController@edit'));
+
+    Route::get('/statistics', array('as' => 'statistics.index', 'uses' => 'StatisticsController@index'));
 });
 
-Route::get('/', function() {
-    return View::make('layout.landing.main');
+Route::group(array('namespace' => 'Sightseeing\Controllers'), function()
+{
+    Route::get('/', array('as' => 'index', 'uses' => 'PagesController@index'));
+
+    Route::get('/share/{id}', array('as', 'share.sight', 'uses' => 'PagesController@share'));
 });
+
