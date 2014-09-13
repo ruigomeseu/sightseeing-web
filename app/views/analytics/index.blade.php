@@ -7,11 +7,11 @@
     <ul class="breadcrumb breadcrumb-page">
         <div class="breadcrumb-label text-light-gray">You are here: </div>
         <li><a href="{{ URL::route('user.dashboard') }}">Dashboard</a></li>
-        <li class="active"><a href="{{ URL::route('sight.show') }}">Sights</a></li>
+        <li class="active"><a href="{{ URL::route('analytics.index') }}">Analytics</a></li>
     </ul>
 
     <div class="page-header">
-        <h1>Sights</h1>
+        <h1>Analytics</h1>
     </div> <!-- / .page-header -->
 
     <div class="row">
@@ -88,7 +88,7 @@
             </div>
 
     </div>
-    </div>d
+    </div>
     <div class="row">
         <div class="col-sm-6">
             <script>

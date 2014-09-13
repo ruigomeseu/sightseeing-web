@@ -22,6 +22,8 @@ Route::group(array('prefix' => 'api/v1', 'namespace' => 'Sightseeing\Controllers
     Route::get('categories', array('as' => 'categories.list', 'uses' => 'CategoriesController@index'));
 
     Route::post('checkins', array('as' => 'checkin.create', 'uses' => 'CheckinsController@create'));
+
+    Route::post('suggestions', array('as' => 'suggestions.create', 'uses' => 'SuggestionsController@create'));
 });
 
 
@@ -62,7 +64,7 @@ Route::group(array('before' => 'auth', 'namespace' => 'Sightseeing\Controllers')
     Route::get('/beacons/{id}', array('as' => 'beacon.show', 'uses' => 'BeaconsController@show'));
     Route::post('beacons/{id}', array('as' => 'beacon.show', 'uses' => 'BeaconsController@edit'));
 
-    Route::get('/statistics', array('as' => 'statistics.index', 'uses' => 'StatisticsController@index'));
+    Route::get('/analytics', array('as' => 'analytics.index', 'uses' => 'AnalyticsController@index'));
 });
 
 Route::group(array('namespace' => 'Sightseeing\Controllers'), function()

@@ -3,7 +3,7 @@
 use Sightseeing\Repositories\Checkin\CheckinRepository;
 use View;
 
-class StatisticsController extends BaseController {
+class AnalyticsController extends BaseController {
 
     /**
      * @var CheckinRepository
@@ -79,8 +79,8 @@ class StatisticsController extends BaseController {
             }
         }
 
-        return View::make("statistics.index")
-            ->with('title', 'City Statistics')
+        return View::make("analytics.index")
+            ->with('title', 'City Analytics')
             ->with('visitsPerSight', $visitsPerSight)
             ->with('visitsPerCountry', $visitsPerCountry)
             ->with('sightsPerVisitor', $sightsPerVisitorNormalized);
