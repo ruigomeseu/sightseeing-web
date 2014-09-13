@@ -78,6 +78,7 @@ class SuggestionsController extends ApiController
         $suggestions = $elasticsearch->search($searchQuery);
 
         $filteredSuggestions = array();
+        $filteredSuggestions['data'] = [];
 
         foreach ($suggestions['hits']['hits'] as $suggestion) {
             $suggestionAdded = false;
@@ -93,7 +94,7 @@ class SuggestionsController extends ApiController
         }
 
         $maxScore = 0;
-        $filteredSuggestions['data'] = [];
+
 
         foreach($filteredSuggestions['data'] as $suggestion)
         {
