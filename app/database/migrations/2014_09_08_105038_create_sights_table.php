@@ -18,6 +18,9 @@ class CreateSightsTable extends Migration {
             $table->string('name');
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->decimal('cost', 4, 2);
+            $table->integer('opening_hours');
+            $table->integer('closing_hours');
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
             $table->text('description');
