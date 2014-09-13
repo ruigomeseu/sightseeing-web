@@ -13,10 +13,10 @@
 
 ClassLoader::addDirectories(array(
 
-	app_path().'/commands',
-	app_path().'/controllers',
-	app_path().'/models',
-	app_path().'/database/seeds',
+    app_path() . '/commands',
+    app_path() . '/controllers',
+    app_path() . '/models',
+    app_path() . '/database/seeds',
 
 ));
 
@@ -31,7 +31,7 @@ ClassLoader::addDirectories(array(
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+Log::useFiles(storage_path() . '/logs/laravel.log');
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +46,8 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 |
 */
 
-App::error(function(Exception $exception, $code)
-{
-	Log::error($exception);
+App::error(function (Exception $exception, $code) {
+    Log::error($exception);
 });
 
 /*
@@ -62,10 +61,55 @@ App::error(function(Exception $exception, $code)
 |
 */
 
-App::down(function()
-{
-	return Response::make("Be right back!", 503);
+App::down(function () {
+    return Response::make("Be right back!", 503);
 });
+
+/*Sightseeing\Sight::created(function ($sight)
+{
+    $client = new \Elasticsearch\Client();
+    $client->index([
+        'index' => 'sightseeing',
+        'type' => 'sight',
+        'id' => $sight->id,
+        'body' => [
+            'name' => $sight->name,
+            'description' => $sight->description,
+            'location' => [
+                'lat' => $sight->latitude,
+                'lon' => $sight->longitude
+            ],
+        ]
+    ]);
+});
+
+Sightseeing\Sight::updated(function ($sight)
+{
+    $client = new \Elasticsearch\Client();
+    $client->index([
+        'index' => 'sightseeing',
+        'type' => 'sight',
+        'id' => $sight->id,
+        'body' => [
+            'name' => $sight->name,
+            'description' => $sight->description,
+            'location' => [
+                'lat' => $sight->latitude,
+                'lon' => $sight->longitude
+            ],
+        ]
+    ]);
+});
+
+Sightseeing\Sight::deleted(function ($sight)
+{
+    $client = new \Elasticsearch\Client();
+    $client->delete([
+        'index' => 'sightseeing',
+        'type' => 'sight',
+        'id' => $sight->id,
+    ]);
+});*/
 
 /*
 |--------------------------------------------------------------------------
@@ -78,4 +122,4 @@ App::down(function()
 |
 */
 
-require app_path().'/filters.php';
+require app_path() . '/filters.php';
