@@ -93,6 +93,8 @@ class SuggestionsController extends ApiController
         }
 
         $maxScore = 0;
+        $filteredSuggestions['data'] = [];
+
         foreach($filteredSuggestions['data'] as $suggestion)
         {
             if($suggestion['score'] > $maxScore)
