@@ -103,7 +103,7 @@
                     <a href="{{ URL::route('beacon.index') }}"><i class="menu-icon fa fa-cubes"></i><span class="mm-text">Manage Beacons</span></a>
                 </li>
                 <li>
-                    <a href="{{ URL::route('statistics.index') }}"><i class="menu-icon fa fa-area-chart"></i><span class="mm-text">City Statistics</span></a>
+                    <a href="{{ URL::route('analytics.index') }}"><i class="menu-icon fa fa-area-chart"></i><span class="mm-text">City Analytics</span></a>
                 </li>
 			</ul> <!-- / .navigation -->
 			<div class="menu-content">
