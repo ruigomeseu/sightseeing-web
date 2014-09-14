@@ -14,7 +14,7 @@
     }
 
     channel.bind('userCheckedIn', function(data) {
-        (new App.Notifier).notify("New visitor", "A new visitor just checked in at " + data.sight);
+        (new App.Notifier).notify("New visitor", "A new visitor just checked in at Torre dos Clérigos");
     });
 
 })();
