@@ -90,37 +90,9 @@
     </div>
     </div>
     <div class="row">
-        <div class="col-sm-6">
-            <script>
-                init.push(function () {
-                    Morris.Donut({
-                        element: 'visits-per-sight2',
-                        data: [
-                        @foreach($visitsPerSight as $sight => $visits)
-                            { label: '{{ $sight }}', value: {{ $visits }} },
-                        @endforeach
-                        ],
-                        colors: PixelAdmin.settings.consts.COLORS,
-                        resize: true,
-                        labelColor: '#888',
-                        formatter: function (y) { return y + " visitors" }
-                    });
-                });
-            </script>
-            <!-- / Javascript -->
 
-            <div class="panel">
-                <div class="panel-heading">
-                    <span class="panel-title">Visitors Per Sight</span>
-                </div>
-                <div class="panel-body">
-                    <div class="graph-container">
-                        <div id="visits-per-sight2" class="graph"></div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
+
 
         <div class="col-sm-6">
             <script>
