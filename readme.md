@@ -1,25 +1,23 @@
-## Laravel PHP Framework
+# Sightseeing.io
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This is the backend and API for the Sightseeing.io project, developed during a 7-day hackaton [Porto Summer of Code](http://www.portosummerofcode.com/) (PSC)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+# Hackathon Place
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+16 teams participated on PSC and we got the first prize with this platform, being awarded an iPad Air for each of the members of the team.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+# Features
 
-## Official Documentation
+This is a Laravel application that doubles as an API and a backend platform.
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+## API
 
-### Contributing To Laravel
+A REST API with a few endpoints that provides data to the Android application built in the hackathon as well.
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+It also serves as a bridge between the ElasticSearch server that powers the Suggestions Engine on the Android application.
 
-### License
+## Backend
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Allows for editing of all the city sights, uploading images to Amazon S3 and editing the iBeacons information.
+
+Has a powerful Analytics section that gathers information from the Android app and shows outstanding charts and statistics.
