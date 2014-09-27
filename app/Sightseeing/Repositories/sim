@@ -1,6 +1,0 @@
-male(AldoBurrows).
-male(LincolnBurrows).
-male(MichaelSchofield).
-female(ChristinaRoseScofield).
-parent(AldoBurrows, MichaelScofield).
-parent(CristinaRoseScofield, MichaelScofield).
